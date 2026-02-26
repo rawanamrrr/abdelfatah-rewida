@@ -29,14 +29,14 @@ export function RomanticAudio() {
     const startAudio = (event: Event) => {
       // Prevent multiple starts
       if (hasStarted || isPlaying) return;
-      
+
       try {
         // CRITICAL: Must call play() synchronously within the event handler for Android
         audio.muted = false;
-        
+
         // Call play() immediately - don't await, Android needs this to be synchronous
         const playPromise = audio.play();
-        
+
         if (playPromise !== undefined) {
           playPromise
             .then(() => {
@@ -54,7 +54,7 @@ export function RomanticAudio() {
                       setIsPlaying(true);
                       hasStarted = true;
                     })
-                    .catch(() => {});
+                    .catch(() => { });
                 }, { once: true });
               }
             });
@@ -71,10 +71,10 @@ export function RomanticAudio() {
     // Android requires DIRECT user interaction - listen to touchstart (not scroll)
     // Use capture phase and non-passive to ensure we get the event
     const options = { once: true, passive: false, capture: true };
-    
+
     // Touch events (Android primary) - touchstart is most reliable
     document.addEventListener('touchstart', startAudio, options);
-    
+
     // Click events (fallback for desktop)
     document.addEventListener('click', startAudio, { once: true, passive: false, capture: true });
 
@@ -152,13 +152,13 @@ export function RomanticAudio() {
         // Force stop and silence in background across browsers
         a.muted = true;
         a.pause();
-        try { a.currentTime = 0; } catch {}
-        try { a.removeAttribute('src'); } catch {}
-        try { a.load(); } catch {}
+        try { a.currentTime = 0; } catch { }
+        try { a.removeAttribute('src'); } catch { }
+        try { a.load(); } catch { }
         wasPlayingRef.current = false;
         setIsPlaying(false);
         // Best effort: clear media session playback indicator when supported
-        try { (navigator as any)?.mediaSession && ((navigator as any).mediaSession.playbackState = 'none'); } catch {}
+        try { (navigator as any)?.mediaSession && ((navigator as any).mediaSession.playbackState = 'none'); } catch { }
       } catch (error) {
         console.error('Error while pausing audio:', error);
       }
@@ -276,7 +276,7 @@ export function RomanticAudio() {
           <Volume2 className="h-6 w-6" aria-hidden="true" />
         )}
       </Button>
-      
+
       <audio
         ref={audioRef}
         src="/romantic-piano.mp3"

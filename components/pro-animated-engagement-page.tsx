@@ -36,7 +36,7 @@ const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { 
+    transition: {
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1] as const
     }
@@ -74,8 +74,8 @@ const slideFromLeft: Variants = {
     x: 0,
     opacity: 1,
     scale: 1,
-    transition: { 
-      duration: 1.2, 
+    transition: {
+      duration: 1.2,
       ease: [0.16, 1, 0.3, 1] as const,
       type: "spring",
       stiffness: 80,
@@ -90,8 +90,8 @@ const slideFromRight: Variants = {
     x: 0,
     opacity: 1,
     scale: 1,
-    transition: { 
-      duration: 1.2, 
+    transition: {
+      duration: 1.2,
       ease: [0.16, 1, 0.3, 1] as const,
       type: "spring",
       stiffness: 80,
@@ -108,8 +108,8 @@ const flyFromLeft: Variants = {
     opacity: 1,
     scale: 1,
     rotate: 0,
-    transition: { 
-      duration: 1.4, 
+    transition: {
+      duration: 1.4,
       ease: [0.16, 1, 0.3, 1] as const,
       type: "spring",
       stiffness: 60,
@@ -126,8 +126,8 @@ const flyFromRight: Variants = {
     opacity: 1,
     scale: 1,
     rotate: 0,
-    transition: { 
-      duration: 1.4, 
+    transition: {
+      duration: 1.4,
       ease: [0.16, 1, 0.3, 1] as const,
       type: "spring",
       stiffness: 60,
@@ -144,8 +144,8 @@ const floatFromLeft: Variants = {
     y: 0,
     opacity: 1,
     scale: 1,
-    transition: { 
-      duration: 1.5, 
+    transition: {
+      duration: 1.5,
       ease: [0.16, 1, 0.3, 1] as const,
       type: "spring",
       stiffness: 70,
@@ -162,8 +162,8 @@ const floatFromRight: Variants = {
     y: 0,
     opacity: 1,
     scale: 1,
-    transition: { 
-      duration: 1.5, 
+    transition: {
+      duration: 1.5,
       ease: [0.16, 1, 0.3, 1] as const,
       type: "spring",
       stiffness: 70,
@@ -261,13 +261,13 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 overflow-x-hidden">
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="relative py-8 px-4 md:py-12"
         initial="hidden"
         animate="visible"
         variants={fastStaggerContainer}
       >
-        <motion.div 
+        <motion.div
           className="w-full max-w-2xl mx-auto relative z-10"
           variants={scaleIn}
         >
@@ -285,7 +285,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
               onLoad={handleImageLoad}
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 80vw, 70vw"
             />
-            
+
             {/* Minimal loading state */}
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
@@ -297,17 +297,17 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
             )}
           </div>
         </motion.div>
-        
+
         <div className="mt-6 w-full max-w-2xl mx-auto text-center px-4">
         </div>
-        
+
         {/* Scroll Down Indicator - Flying from left */}
         <motion.button
           onClick={() => {
             const countdownSection = document.querySelector('section[class*="py-20"]');
             countdownSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}
-          className="absolute bottom-8 left-8 flex flex-col items-center gap-3 z-20 cursor-pointer group"
+          className="absolute bottom-0 left-36 flex flex-col items-center gap-1 z-20 cursor-pointer group"
           initial="hidden"
           animate="visible"
           variants={flyFromLeft}
@@ -322,17 +322,17 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
           </div>
           <motion.div
             animate={{ y: [0, 12, 0] }}
-            transition={{ 
-              duration: 1.2, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
+            transition={{
+              duration: 1.2,
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
             className="bg-accent/90 p-2 rounded-full shadow-lg group-hover:bg-accent transition-colors"
           >
-            <svg 
-              className="w-8 h-8 text-white" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
               strokeWidth={2.5}
             >
@@ -344,16 +344,16 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
             </svg>
           </motion.div>
         </motion.button>
-        
+
         {/* Animated floating background elements */}
-        <motion.div 
+        <motion.div
           className="absolute -left-20 top-1/4 w-64 h-64 bg-accent/5 rounded-full mix-blend-multiply filter blur-3xl"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
           style={{ y: pathY1 }}
         />
-        <motion.div 
+        <motion.div
           className="absolute -right-20 bottom-1/4 w-72 h-72 bg-accent/5 rounded-full mix-blend-multiply filter blur-3xl"
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -363,7 +363,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
       </motion.section>
 
       {/* Countdown Section - Unique frame with diagonal cuts */}
-      <motion.section 
+      <motion.section
         className="relative py-12 px-4 md:py-16 overflow-hidden"
         initial="hidden"
         whileInView="visible"
@@ -374,37 +374,37 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
         }}
       >
         {/* Animated Decorative Elements */}
-        <motion.div 
+        <motion.div
           className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
           initial={{ x: -300, opacity: 0, scale: 0.5 }}
           whileInView={{ x: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.8, ease: "easeOut" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
           initial={{ x: 300, opacity: 0, scale: 0.5 }}
           whileInView={{ x: 0, opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.8, ease: "easeOut", delay: 0.2 }}
         />
-        
+
         <div className="relative max-w-6xl mx-auto text-center">
-          <motion.div 
+          <motion.div
             className="inline-flex flex-col items-center mb-16"
             variants={fastStaggerContainer}
           >
             <motion.div className="flex items-center justify-center gap-4 mb-8" variants={flyFromLeft}>
-              <motion.div 
+              <motion.div
                 className="w-24 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.3 }}
               />
-              <motion.svg 
-                className="w-6 h-6 text-accent" 
-                fill="currentColor" 
+              <motion.svg
+                className="w-6 h-6 text-accent"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
@@ -413,7 +413,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
               >
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
               </motion.svg>
-              <motion.div 
+              <motion.div
                 className="w-24 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -436,7 +436,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
       </motion.section>
 
       {/* Venue & RSVP Section - Asymmetric frame */}
-      <motion.section 
+      <motion.section
         className="relative py-20 px-4 md:py-32 bg-gradient-to-b from-transparent via-accent/5 to-transparent"
         initial="hidden"
         whileInView="visible"
@@ -447,26 +447,26 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
         }}
       >
         <div className="max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-20"
             variants={fastStaggerContainer}
           >
             <motion.div className="flex items-center justify-center gap-4 mb-8" variants={floatFromLeft}>
-              <motion.div 
+              <motion.div
                 className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
                 initial={{ scaleX: 0, originX: 1 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, delay: 0.2 }}
               />
-              <motion.div 
+              <motion.div
                 className="w-3 h-3 rotate-45 bg-accent"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 45 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
               />
-              <motion.div 
+              <motion.div
                 className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
                 initial={{ scaleX: 0, originX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -481,7 +481,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
 
           <div className="max-w-5xl mx-auto">
             {/* Main Venue Card with Unique Frame */}
-            <motion.div 
+            <motion.div
               className="relative bg-gradient-to-br from-card/95 via-card/90 to-accent/10 backdrop-blur-sm border-4 border-accent/40 p-8 md:p-12 shadow-2xl mb-8"
               initial={{ scale: 0.95, opacity: 0, y: 50 }}
               whileInView={{ scale: 1, opacity: 1, y: 0 }}
@@ -500,7 +500,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
               >
                 <svg className="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
               </motion.div>
               <motion.div
@@ -511,7 +511,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
               >
                 <svg className="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
               </motion.div>
               <motion.div
@@ -522,7 +522,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 transition={{ duration: 0.6, delay: 0.4, type: "spring" }}
               >
                 <svg className="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
               </motion.div>
               <motion.div
@@ -533,13 +533,13 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 transition={{ duration: 0.6, delay: 0.5, type: "spring" }}
               >
                 <svg className="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
               </motion.div>
 
               <div className="relative z-10 text-center">
                 {/* Location Pin at Top */}
-                <motion.div 
+                <motion.div
                   className="flex justify-center mb-4"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -547,12 +547,12 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                   transition={{ duration: 0.5, type: "spring" }}
                 >
                   <svg className="w-16 h-16 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                 </motion.div>
 
                 {/* Venue Name */}
-                <motion.h3 
+                <motion.h3
                   className="font-elegant text-4xl md:text-5xl lg:text-6xl text-foreground mb-2 tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -561,7 +561,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 >
                   {t('location').split(', ')[0]}
                 </motion.h3>
-                <motion.p 
+                <motion.p
                   className="font-luxury text-xl md:text-2xl text-muted-foreground mb-8 italic"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -572,7 +572,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 </motion.p>
 
                 {/* Divider Line */}
-                <motion.div 
+                <motion.div
                   className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-8"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -582,7 +582,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
 
                 {/* Date and Time in Side-by-Side Boxes */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <motion.div 
+                  <motion.div
                     className="bg-gradient-to-br from-accent/15 to-accent/5 border-2 border-accent/30 p-6 rounded-lg"
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -602,7 +602,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                     </p>
                   </motion.div>
 
-                  <motion.div 
+                  <motion.div
                     className="bg-gradient-to-br from-accent/15 to-accent/5 border-2 border-accent/30 p-6 rounded-lg"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -639,6 +639,78 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
         </div>
       </motion.section>
 
+      <motion.section
+        className="relative py-20 px-4 md:py-32 bg-gradient-to-b from-transparent via-accent/5 to-transparent"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fastStaggerContainer}
+        style={{
+          clipPath: 'polygon(0 0%, 100% 5%, 100% 100%, 0% 95%)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="text-center mb-20"
+            variants={fastStaggerContainer}
+          >
+            <motion.div className="flex items-center justify-center gap-4 mb-8" variants={floatFromLeft}>
+              <motion.div
+                className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
+                initial={{ scaleX: 0, originX: 1 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, delay: 0.2 }}
+              />
+              <motion.div
+                className="w-3 h-3 rotate-45 bg-accent"
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 45 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
+              />
+              <motion.div
+                className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
+                initial={{ scaleX: 0, originX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, delay: 0.2 }}
+              />
+            </motion.div>
+            <motion.h2 className="font-luxury text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight mb-4 tracking-wide" variants={floatFromRight}>
+              Love Story
+            </motion.h2>
+          </motion.div>
+
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              className="relative bg-gradient-to-br from-card/95 via-card/90 to-accent/10 backdrop-blur-sm border-4 border-accent/40 p-8 md:p-12 shadow-2xl"
+              initial={{ scale: 0.95, opacity: 0, y: 50 }}
+              whileInView={{ scale: 1, opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                clipPath: 'polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%)',
+              }}
+            >
+              <div className="relative z-10 text-center">
+                <motion.p
+                  className={`font-luxury text-2xl md:text-3xl text-foreground leading-relaxed whitespace-pre-line ${language === 'ar' ? 'text-right' : 'text-center'}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  dir={language === 'ar' ? 'rtl' : 'ltr'}
+                >
+                  {`محاضرة جوه قاعة ف مبني أعلام جامعة ٦ اكتوبر …حالة من التوهان و عنيا مش رايحة غير عليها  عيونها كانوا أحلي من السما بنجومها ....  تعطلت لغة الكلام و خاطبت عيني في لغة الهوي عيناك و بداء كل شيئ .…
+مشوار الكلية مكنش كفايا ف قررت اخدك معايا ف مشوار العمر كلة 💍♥️`}
+                </motion.p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Message Section */}
       <HandwrittenMessage />
 
@@ -647,14 +719,14 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
 
       {/* Photo Upload Section */}
       <PhotoUploadSection />
-      
+
       {/* Footer */}
-      <motion.footer 
+      <motion.footer
         className="relative py-24 text-center bg-gradient-to-t from-accent/10 to-transparent"
         variants={fadeIn}
       >
         <div className="max-w-3xl mx-auto px-4">
-          <motion.p 
+          <motion.p
             className="font-luxury text-3xl md:text-4xl text-foreground mb-8 italic leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -665,13 +737,13 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
           </motion.p>
           <div className="flex items-center justify-center gap-6 mb-8">
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-accent to-accent" />
-            <motion.span 
+            <motion.span
               className="text-3xl text-accent drop-shadow-lg"
               animate={{ scale: [1, 1.15, 1] }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
