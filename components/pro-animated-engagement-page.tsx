@@ -12,6 +12,9 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { Button } from "@/components/ui/button"
 import PhotoUploadSection from "@/components/photo-upload-section"
 import RSVPSection from "@/components/rsvp-section"
+import { Cairo } from "next/font/google"
+
+const cairo = Cairo({ subsets: ["arabic"], weight: ["400", "600", "700"], display: "swap" })
 
 // Format date in Arabic or English
 const formatDate = (date: Date, locale: string) => {
@@ -693,9 +696,54 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 clipPath: 'polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%)',
               }}
             >
+              <div className="pointer-events-none absolute inset-0">
+                <motion.span
+                  className="absolute -top-4 left-8 text-3xl md:text-4xl opacity-70"
+                  initial={{ opacity: 0, y: -10, rotate: -10 }}
+                  whileInView={{ opacity: 0.7, y: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ y: [0, -10, 0], rotate: [0, 6, 0] }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  🦋
+                </motion.span>
+                <motion.span
+                  className="absolute top-10 -right-3 text-2xl md:text-3xl opacity-60"
+                  initial={{ opacity: 0, x: 10, rotate: 12 }}
+                  whileInView={{ opacity: 0.6, x: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ y: [0, 12, 0], rotate: [0, -6, 0] }}
+                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  🦋
+                </motion.span>
+                <motion.span
+                  className="absolute -bottom-5 right-10 text-3xl md:text-4xl opacity-60"
+                  initial={{ opacity: 0, y: 10, rotate: -12 }}
+                  whileInView={{ opacity: 0.6, y: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ y: [0, 10, 0], rotate: [0, 8, 0] }}
+                  transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  🦋
+                </motion.span>
+                <motion.span
+                  className="absolute bottom-12 -left-2 text-2xl md:text-3xl opacity-50"
+                  initial={{ opacity: 0, x: -10, rotate: 10 }}
+                  whileInView={{ opacity: 0.5, x: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  animate={{ y: [0, -8, 0], rotate: [0, -8, 0] }}
+                  transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  🦋
+                </motion.span>
+              </div>
               <div className="relative z-10 text-center">
                 <motion.p
-                  className={`font-luxury text-2xl md:text-3xl text-foreground leading-relaxed whitespace-pre-line ${language === 'ar' ? 'text-right' : 'text-center'}`}
+                  className={`${language === 'ar'
+                      ? `${cairo.className} text-[#f56993] text-right`
+                      : 'font-luxury text-foreground text-center'
+                    } text-2xl md:text-3xl leading-relaxed whitespace-pre-line`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
