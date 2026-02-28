@@ -786,7 +786,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                   >
-                    محاضرة جوه قاعة ف مبني أعلام جامعة ٦ اكتوبر…
+                    في محاضرة جوه قاعة ف مبني أعلام جامعة ٦ اكتوبر…
                   </motion.p>
                   <motion.p
                     className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}

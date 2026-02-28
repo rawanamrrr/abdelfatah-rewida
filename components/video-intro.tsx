@@ -40,7 +40,9 @@ export default function VideoIntro({ onComplete, onSkip }: VideoIntroProps) {
     }
   }, [phase]);
 
-  const handleScreenClick = () => {
+  const handleScreenClick = (e: React.MouseEvent) => {
+    // Don't trigger if clicking the skip button
+    if ((e.target as HTMLElement).closest('button')) return;
     if (phase === 'invitation' && !isTransitioning) {
       setIsTransitioning(true);
       setPhase('engagement');
@@ -115,7 +117,8 @@ export default function VideoIntro({ onComplete, onSkip }: VideoIntroProps) {
       {/* Skip Button - Always visible */}
       <button
         onClick={handleSkip}
-        className="absolute top-4 right-4 md:top-8 md:right-8 z-50 px-4 py-2 bg-black/60 backdrop-blur-sm text-white rounded-full text-sm font-medium hover:bg-black/80 transition-all"
+        onTouchStart={(e) => e.stopPropagation()}
+        className="absolute top-4 right-4 md:top-8 md:right-8 z-50 px-4 py-2 bg-black/60 backdrop-blur-sm text-white rounded-full text-sm font-medium hover:bg-black/80 transition-all pointer-events-auto touch-manipulation"
       >
         Skip
       </button>

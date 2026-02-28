@@ -19,6 +19,11 @@ const ProAnimatedEngagementPage = dynamic(
   }
 )
 
+// Preload the main component immediately when app mounts
+const preloadMainComponent = () => {
+  import("@/components/pro-animated-engagement-page")
+}
+
 export default function Home() {
   const [introFinished, setIntroFinished] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false)
@@ -26,6 +31,8 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true)
+    // Preload main component immediately
+    preloadMainComponent()
   }, [])
 
   const handleIntroFinish = useCallback(() => {
