@@ -795,7 +795,16 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    حالة من التوهان و عنيا مش رايحة غير عليها، عيونها كانوا أحلي من السما بنجومها…
+                    حالة من التوهان و عنيا مش رايحة غير عليها…
+                  </motion.p>
+                  <motion.p
+                    className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                     عيونها كانوا أحلي من السما بنجومها…
                   </motion.p>
                   <motion.p
                     className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}
