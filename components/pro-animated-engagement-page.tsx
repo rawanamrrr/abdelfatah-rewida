@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import PhotoUploadSection from "@/components/photo-upload-section"
 import RSVPSection from "@/components/rsvp-section"
 import { Cairo } from "next/font/google"
+import LoveStoryGallery from "@/components/love-story-gallery"
 
 const cairo = Cairo({ subsets: ["arabic"], weight: ["400", "600", "700"], display: "swap" })
 
@@ -462,13 +463,17 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, delay: 0.2 }}
               />
-              <motion.div
-                className="w-3 h-3 rotate-45 bg-accent"
+              <motion.svg
+                className="w-10 h-10 text-accent"
+                fill="currentColor"
+                viewBox="0 0 24 24"
                 initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 45 }}
+                whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
-              />
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </motion.svg>
               <motion.div
                 className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
                 initial={{ scaleX: 0, originX: 0 }}
@@ -666,7 +671,7 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
                 transition={{ duration: 1.2, delay: 0.2 }}
               />
               <motion.div
-                className="w-3 h-3 rotate-45 bg-accent"
+                className="w-3 h-3 rotate-45 bg-[#f56993]"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 45 }}
                 viewport={{ once: true }}
@@ -683,83 +688,152 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
             <motion.h2 className="font-luxury text-5xl md:text-6xl lg:text-7xl text-foreground leading-tight mb-4 tracking-wide" variants={floatFromRight}>
               Love Story
             </motion.h2>
-          </motion.div>
+            <div className="max-w-5xl mx-auto">
+              <motion.div
+                className="relative bg-gradient-to-br from-card/95 via-card/90 to-accent/10 backdrop-blur-sm border-4 border-accent/40 p-8 md:p-12 shadow-2xl"
+                initial={{ scale: 0.95, opacity: 0, y: 50 }}
+                whileInView={{ scale: 1, opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  clipPath: 'polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%)',
+                }}
+              >
+                {/* Pink Flowers at Corners */}
+                <motion.div
+                  className="absolute -top-3 -left-3 z-20"
+                  initial={{ scale: 0, rotate: -45 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3, type: "spring" }}
+                >
+                  <span className="text-4xl md:text-5xl filter drop-shadow-lg">🌸</span>
+                </motion.div>
+                <motion.div
+                  className="absolute -top-3 -right-3 z-20"
+                  initial={{ scale: 0, rotate: 45 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4, type: "spring" }}
+                >
+                  <span className="text-4xl md:text-5xl filter drop-shadow-lg">🌸</span>
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-3 -left-3 z-20"
+                  initial={{ scale: 0, rotate: 45 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5, type: "spring" }}
+                >
+                  <span className="text-4xl md:text-5xl filter drop-shadow-lg">🌸</span>
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-3 -right-3 z-20"
+                  initial={{ scale: 0, rotate: -45 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
+                >
+                  <span className="text-4xl md:text-5xl filter drop-shadow-lg">🌸</span>
+                </motion.div>
+                <div className="pointer-events-none absolute inset-0">
+                  <motion.span
+                    className="absolute -top-4 left-8 text-3xl md:text-4xl opacity-70"
+                    initial={{ opacity: 0, y: -10, rotate: -10 }}
+                    whileInView={{ opacity: 0.7, y: 0, rotate: 0 }}
+                    viewport={{ once: true }}
+                    animate={{ y: [0, -10, 0], rotate: [0, 6, 0] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    🦋
+                  </motion.span>
+                  <motion.span
+                    className="absolute top-10 -right-3 text-2xl md:text-3xl opacity-60"
+                    initial={{ opacity: 0, x: 10, rotate: 12 }}
+                    whileInView={{ opacity: 0.6, x: 0, rotate: 0 }}
+                    viewport={{ once: true }}
+                    animate={{ y: [0, 12, 0], rotate: [0, -6, 0] }}
+                    transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    🦋
+                  </motion.span>
+                  <motion.span
+                    className="absolute -bottom-5 right-10 text-3xl md:text-4xl opacity-60"
+                    initial={{ opacity: 0, y: 10, rotate: -12 }}
+                    whileInView={{ opacity: 0.6, y: 0, rotate: 0 }}
+                    viewport={{ once: true }}
+                    animate={{ y: [0, 10, 0], rotate: [0, 8, 0] }}
+                    transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    🦋
+                  </motion.span>
+                  <motion.span
+                    className="absolute bottom-12 -left-2 text-2xl md:text-3xl opacity-50"
+                    initial={{ opacity: 0, x: -10, rotate: 10 }}
+                    whileInView={{ opacity: 0.5, x: 0, rotate: 0 }}
+                    viewport={{ once: true }}
+                    animate={{ y: [0, -8, 0], rotate: [0, -8, 0] }}
+                    transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    🦋
+                  </motion.span>
+                </div>
+                <div className="relative z-10 text-center space-y-3" dir="rtl">
+                  <motion.p
+                    className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                  >
+                    محاضرة جوه قاعة ف مبني أعلام جامعة ٦ اكتوبر…
+                  </motion.p>
+                  <motion.p
+                    className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    حالة من التوهان و عنيا مش رايحة غير عليها، عيونها كانوا أحلي من السما بنجومها…
+                  </motion.p>
+                  <motion.p
+                    className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    تعطلت لغة الكلام و خاطبت عيني في لغة الهوي عيناها و بداء كل شيئ…
+                  </motion.p>
+                  <motion.p
+                    className={`${cairo.className} text-right text-[#f56993] text-2xl md:text-3xl leading-relaxed`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    مشوار الكلية مكنش كفايا ف قررت أخدها معايا ف مشوار العمر كلة ♥️💍
+                  </motion.p>
+                </div>
 
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              className="relative bg-gradient-to-br from-card/95 via-card/90 to-accent/10 backdrop-blur-sm border-4 border-accent/40 p-8 md:p-12 shadow-2xl"
-              initial={{ scale: 0.95, opacity: 0, y: 50 }}
-              whileInView={{ scale: 1, opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                clipPath: 'polygon(8% 0%, 92% 0%, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0% 92%, 0% 8%)',
-              }}
-            >
-              <div className="pointer-events-none absolute inset-0">
-                <motion.span
-                  className="absolute -top-4 left-8 text-3xl md:text-4xl opacity-70"
-                  initial={{ opacity: 0, y: -10, rotate: -10 }}
-                  whileInView={{ opacity: 0.7, y: 0, rotate: 0 }}
-                  viewport={{ once: true }}
-                  animate={{ y: [0, -10, 0], rotate: [0, 6, 0] }}
-                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  🦋
-                </motion.span>
-                <motion.span
-                  className="absolute top-10 -right-3 text-2xl md:text-3xl opacity-60"
-                  initial={{ opacity: 0, x: 10, rotate: 12 }}
-                  whileInView={{ opacity: 0.6, x: 0, rotate: 0 }}
-                  viewport={{ once: true }}
-                  animate={{ y: [0, 12, 0], rotate: [0, -6, 0] }}
-                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  🦋
-                </motion.span>
-                <motion.span
-                  className="absolute -bottom-5 right-10 text-3xl md:text-4xl opacity-60"
-                  initial={{ opacity: 0, y: 10, rotate: -12 }}
-                  whileInView={{ opacity: 0.6, y: 0, rotate: 0 }}
-                  viewport={{ once: true }}
-                  animate={{ y: [0, 10, 0], rotate: [0, 8, 0] }}
-                  transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  🦋
-                </motion.span>
-                <motion.span
-                  className="absolute bottom-12 -left-2 text-2xl md:text-3xl opacity-50"
-                  initial={{ opacity: 0, x: -10, rotate: 10 }}
-                  whileInView={{ opacity: 0.5, x: 0, rotate: 0 }}
-                  viewport={{ once: true }}
-                  animate={{ y: [0, -8, 0], rotate: [0, -8, 0] }}
-                  transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  🦋
-                </motion.span>
-              </div>
-              <div className="relative z-10 text-center">
-                <motion.p
-                  className={`${language === 'ar'
-                      ? `${cairo.className} text-[#f56993] text-right`
-                      : 'font-luxury text-foreground text-center'
-                    } text-2xl md:text-3xl leading-relaxed whitespace-pre-line`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  dir={language === 'ar' ? 'rtl' : 'ltr'}
-                >
-                  {`محاضرة جوه قاعة ف مبني أعلام جامعة ٦ اكتوبر …حالة من التوهان و عنيا مش رايحة غير عليها  عيونها كانوا أحلي من السما بنجومها ....  تعطلت لغة الكلام و خاطبت عيني في لغة الهوي عيناك و بداء كل شيئ .…
-مشوار الكلية مكنش كفايا ف قررت اخدك معايا ف مشوار العمر كلة 💍♥️`}
-                </motion.p>
-              </div>
-            </motion.div>
-          </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
+      {/* Love Story Gallery Section */}
+      <LoveStoryGallery />
+
       {/* Message Section */}
+      <div className="flex items-center justify-center gap-4 pt-40 pb-2">
+        <div className="w-32 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+        <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <div className="w-32 h-px bg-gradient-to-l from-transparent via-accent to-transparent" />
+      </div>
       <HandwrittenMessage />
 
       {/* RSVP Section */}
@@ -815,3 +889,4 @@ export default function ProAnimatedEngagementPage({ onImageLoad, introFinished }
     </div>
   )
 }
+
