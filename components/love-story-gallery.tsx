@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useTranslation } from '@/lib/translations'
+import { Cairo } from "next/font/google"
+
+const cairo = Cairo({ subsets: ["arabic"], weight: ["400", "700"], display: "swap" })
 
 const images = [
   '/love-story1.jpeg',
@@ -93,7 +96,7 @@ export default function LoveStoryGallery() {
                       alt={`Love story moment ${index + 1}`}
                       fill
                       className="object-cover"
-                      style={index === 0 ? { objectPosition: 'center 30%' } : undefined}
+                      style={index === 0 ? { objectPosition: 'center 50%' } : undefined}
                       sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 224px, (max-width: 1280px) 288px, 320px"
                     />
                     
@@ -168,6 +171,7 @@ export default function LoveStoryGallery() {
                       alt={`Love story moment ${index + 4}`}
                       fill
                       className="object-cover"
+                      style={index === 0 ? { objectPosition: 'center 38%' } : undefined}
                       sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 224px, (max-width: 1280px) 288px, 320px"
                     />
                     
@@ -252,6 +256,29 @@ export default function LoveStoryGallery() {
               )
             })}
           </div>
+
+          {/* Romantic Sentence */}
+          <motion.div
+            className="mt-12 mb-8 px-4 text-center relative z-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <p 
+              className={`${cairo.className} text-2xl md:text-3xl lg:text-4xl text-foreground font-medium italic tracking-wide drop-shadow-sm`}
+              dir="rtl"
+            >
+              كَانتْ عَيناها أَعمَق مِنْ أنْ أنظُر إليها و أَمضي .., ♥️
+            </p>
+            <motion.div 
+              className="mt-4 w-24 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent mx-auto"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, delay: 1 }}
+            />
+          </motion.div>
         </div>
       </div>
     </section>
