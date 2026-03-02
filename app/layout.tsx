@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     description: "Join us in celebrating our wedding",
     images: [
       {
-        url: "https://abdelfatah-rewida.netlify.app/invitation-design.png",
-        width: 768,
-        height: 1365,
-        alt: "Abdelfatah & Rewida Wedding Invitation",
+        url: "https://abdelfatah-rewida.netlify.app/preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Abdelfatah & Rewida - Wedding Celebration",
       },
     ],
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Abdelfatah & Rewida - Wedding Celebration",
     description: "Join us in celebrating our wedding",
-    images: ["https://abdelfatah-rewida.netlify.app/invitation-design.png"],
+    images: ["https://abdelfatah-rewida.netlify.app/preview.jpg"],
   },
   icons: {
     icon: "/invitation-design.png",
@@ -63,18 +63,18 @@ export default function RootLayout({
         <meta property="og:description" content="Join us in celebrating our wedding" />
         <meta
           property="og:image"
-          content="https://abdelfatah-rewida.netlify.app/invitation-design.png"
+          content="https://abdelfatah-rewida.netlify.app/preview.jpg"
         />
-        <meta property="og:image:width" content="768" />
-        <meta property="og:image:height" content="1365" />
-        <meta property="og:image:alt" content="Abdelfatah & Rewida Wedding Invitation" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Abdelfatah & Rewida - Wedding Celebration" />
         {/* Removed invalid fb:app_id since it's not needed for basic sharing */}
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Abdelfatah & Rewida - Wedding Celebration" />
         <meta name="twitter:description" content="Join us in celebrating our wedding" />
-        <meta name="twitter:image" content="https://abdelfatah-rewida.netlify.app/invitation-design.png" />
+        <meta name="twitter:image" content="https://abdelfatah-rewida.netlify.app/preview.jpg" />
 
         {/* Preload PNG with high priority to eliminate lag on Netlify */}
         <link
