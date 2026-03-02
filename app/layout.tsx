@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: "Join us in celebrating our wedding",
     images: [
       {
-        url: "https://abdelfatah-rewida.netlify.app/preview.jpg",
+        url: "https://abdelfatah-rewida.netlify.app/preview.webp",
         width: 1200,
         height: 630,
         alt: "Abdelfatah & Rewida Wedding Celebration",
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Abdelfatah & Rewida - Wedding Celebration",
     description: "Join us in celebrating our wedding",
-    images: ["https://abdelfatah-rewida.netlify.app/preview.jpg"],
+    images: ["https://abdelfatah-rewida.netlify.app/preview.webp"],
   },
   icons: {
-    icon: "/preview.jpg",
-    apple: "/preview.jpg",
+    icon: "/preview.webp",
+    apple: "/preview.webp",
   },
 }
 
@@ -63,7 +63,7 @@ export default function RootLayout({
         <meta property="og:description" content="Join us in celebrating our wedding" />
         <meta
           property="og:image"
-          content="https://abdelfatah-rewida.netlify.app/preview.jpg"
+          content="https://abdelfatah-rewida.netlify.app/preview.webp"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -74,14 +74,14 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Abdelfatah & Rewida - Wedding Celebration" />
         <meta name="twitter:description" content="Join us in celebrating our wedding" />
-        <meta name="twitter:image" content="https://abdelfatah-rewida.netlify.app/preview.jpg" />
+        <meta name="twitter:image" content="https://abdelfatah-rewida.netlify.app/preview.webp" />
 
         {/* Preload Preview Image with high priority */}
         <link
           rel="preload"
-          href="/preview.jpg"
+          href="/preview.webp"
           as="image"
-          type="image/jpeg"
+          type="image/webp"
         />
         {/* Preload video and poster for faster intro */}
         <link
