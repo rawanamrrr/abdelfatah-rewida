@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "https://abdelfatah-rewida.netlify.app/preview.jpg",
         width: 1200,
         height: 630,
-        alt: "Abdelfatah & Rewida - Wedding Celebration",
+        alt: "Abdelfatah & Rewida Wedding Celebration",
       },
     ],
   },
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     images: ["https://abdelfatah-rewida.netlify.app/preview.jpg"],
   },
   icons: {
-    icon: "/invitation-design.png",
-    apple: "/invitation-design.png",
+    icon: "/preview.jpg",
+    apple: "/preview.jpg",
   },
 }
 
@@ -67,7 +67,7 @@ export default function RootLayout({
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Abdelfatah & Rewida - Wedding Celebration" />
+        <meta property="og:image:alt" content="Abdelfatah & Rewida Wedding Celebration" />
         {/* Removed invalid fb:app_id since it's not needed for basic sharing */}
 
         {/* Twitter Card tags */}
@@ -76,12 +76,12 @@ export default function RootLayout({
         <meta name="twitter:description" content="Join us in celebrating our wedding" />
         <meta name="twitter:image" content="https://abdelfatah-rewida.netlify.app/preview.jpg" />
 
-        {/* Preload PNG with high priority to eliminate lag on Netlify */}
+        {/* Preload Preview Image with high priority */}
         <link
           rel="preload"
-          href="/invitation-design.png"
+          href="/preview.jpg"
           as="image"
-          type="image/png"
+          type="image/jpeg"
         />
         {/* Preload video and poster for faster intro */}
         <link
